@@ -1,0 +1,84 @@
+/* Navbar animation when it appears */
+.animate-navbar {
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Navbar collapse transition */
+.navbar-collapse {
+  transition: max-height 0.5s ease-out 0.1s, opacity 0.5s ease-out 0.1s; /* Added delay */
+  overflow: hidden; /* Prevents content overflow */
+  max-height: 0; /* Start with collapsed height */
+  opacity: 0; /* Start invisible */
+}
+
+.navbar-collapse.show {
+  max-height: 500px; /* Adjust this value as needed */
+  opacity: 1; /* Fully visible when expanded */
+}
+
+/* Hide navbar collapse on larger screens */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex !important; /* Always show on larger screens */
+    max-height: none; /* Remove max-height restriction */
+    opacity: 1; /* Always visible on larger screens */
+  }
+}
+
+/* Profile photo fade-in effect */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Link hover animation */
+.animated-link a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.animated-link a:hover {
+  color: #ffc107; /* Change text color on hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Optional bg effect */
+}
+
+/* Optional underline animation */
+.animated-link a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffc107;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.animated-link a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
